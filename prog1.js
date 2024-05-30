@@ -45,3 +45,4 @@ for(let key in customer)
     {
         console.log("key =",key, " value= ",customer[key]);
     }
+
