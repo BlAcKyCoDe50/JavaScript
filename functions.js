@@ -35,3 +35,6 @@ let evenarr=arr.filter(function even(val)
 });
 
 console.log(evenarr)
+
+let b=3+5+'5'
+console.log(b)
