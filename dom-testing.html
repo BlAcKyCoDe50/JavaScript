@@ -1,0 +1,43 @@
+
+
+<!-- The DOM allows you to dynamically interact with and manipulate the structure, content, and 
+style of HTML documents using JavaScript. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <h1>Welcome DOM</h1>
+        <p>This is the sample paragraph</p>
+    </div>
+    <button onclick="modifyDOM()">Modify DOM</button>
+
+<!-- function to modify DOM -->
+
+<script>
+    function modifyDOM()
+    {
+        const contentDiv=document.getElementById('content')
+        const header=document.querySelector('h1')
+
+        //modifying the content
+        header.innerText='Hello!! DOM'
+
+        //creating a new element
+        const newpara=document.createElement('p')
+        newpara.innerText='This is the new paragraph that is added dynamically by using DOM'
+
+        contentDiv.appendChild(newpara)
+
+        //changing the style
+        contentDiv.style.backgroundColor='#f0f0f0'
+    }
+</script>
+</body>
+</html>
