@@ -1,13 +1,37 @@
-body{
+body {  /* Target the body element */
     margin: 0;
     width: 100vw;
-    width: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #ebebeb;  /* Set default background color */
 }
 
+h1{
+    font-family: 'Brush Script MT', cursive;
+    margin-bottom: 300px;
+    /* font-size: larger   ; */
+    
+}
+  
+  /* Other styles remain the same */
+  
+
+body.dark-mode {  /* Target body with class for higher specificity */
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    background-color: #ebebeb;  /* Set default background color */
+  }
+  
+  /* Other styles remain the same */
+  
 label{
     width: 500px;
     height: 200px;

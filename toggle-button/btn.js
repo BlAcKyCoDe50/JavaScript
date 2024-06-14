@@ -35,11 +35,12 @@ let body=document.querySelector("body")
 // })
 
 document.getElementById('darkmode-toggle').addEventListener('change', function() {
+    const body = document.body;
     if (this.checked) {
-        document.body.style.backgroundColor = '#242424';
-        document.querySelector('label').style.backgroundColor = '#242424';
+      body.style.backgroundColor = '#242424';
     } else {
-        document.body.style.backgroundColor = '#ebebeb';
-        document.querySelector('label').style.backgroundColor = '#ebebeb';
+      body.style.backgroundColor = '#ebebeb';
     }
-});
+  });
+  
+  
