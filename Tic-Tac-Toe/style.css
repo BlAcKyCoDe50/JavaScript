@@ -42,30 +42,49 @@ body{
     background-color: white;
 }
 
-.reset-btn
+#reset-btn
 {
     padding: 1rem;
     font-size: 1.25rem;
-    background-color: grey;
+    background-color: blue;
     color: white;
     border-radius: 2rem;
     border-color: black;
 }
 
-.new-btn
+#new-btn
 {
     padding: 1rem;
     font-size: 1.25rem;
-    background-color: grey;
+    background-color: black;
     color: white;
     border-radius: 2rem;
-    border-color: black;
+    border: none;
 }
 
 #msg
 {
-    color: #ffffc7;
-    font-size: 8vmin;
+    color: #18067a;
+    font-size: 5vmin;
 }
 
-/* .msg */
+.msg-container
+{
+    height: 90vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.hide
+{
+    display: none;
+}
+
+#title
+{
+    margin-top: 20px;
+}
+
