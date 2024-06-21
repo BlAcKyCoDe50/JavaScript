@@ -3,7 +3,7 @@ const employee =
     salary : 50000,
     calcTax()
     {
-        console.log("Hellp this is the function call" + this.salary);
+        console.log("Hello this is the function call" + this.salary);
     }
 };
 
@@ -45,22 +45,87 @@ employee1.calcTax();
 
 /*****************OOPS************** */
 
-class Animal
+// class Animal
+// {
+//     info()
+//     {
+//         console.log("info function of animal class")
+//     }
+// }
+
+// class animal2 extends Animal 
+// {
+//     info1()
+//     {
+//         console.log("info of the class animal2 ")
+//     }
+// }
+
+// let obj1= new Animal();
+// obj1.info()
+
+// ****************************Callback functions*******************
+
+// function sum(a,b)
+// {
+//     console.log(a+b);
+// }
+
+// function calculator(a,b,sumcallback)
+// {
+//     sumcallback(a,b)
+// }
+
+// calculator(1,2,sum);
+
+
+//example of  callback function
+
+// function getdata(dataid, getnextdata) {
+//     setTimeout(() => {
+//         console.log("data", dataid);
+//         if (dataid) {
+//             getnextdata();
+//         }
+//     }, 2000);
+// }
+
+
+// //callback hell 
+// getdata(1, () => {
+//     console.log("getting data 2");
+//     getdata(2, () => {
+//         console.log("getting data 3");
+//         getdata(3, () => {
+//             console.log("getting data 4");
+//             getdata(4, () => {
+//                 console.log("All data fetched");
+//             });
+//         });
+//     });
+// });
+
+// ******************Promises in JS*******************
+
+// let promise= new Promise((resolve,reject)=>{
+//     console.log("I am Promise")
+// })
+
+//Async await : async await always returns a promise
+
+function api()
 {
-    info()
-    {
-        console.log("info function of animal class")
-    }
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            console.log("weather data")
+            resolve(200)
+        }, 3000);
+    })
 }
 
-class animal2 extends Animal 
+async function getweatherdata()
 {
-    info1()
-    {
-        console.log("info of the class animal2 ")
-    }
+    await api()
 }
 
-let obj1= new Animal();
-obj1.info()
-
+getweatherdata()
