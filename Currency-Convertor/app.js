@@ -1,59 +1,59 @@
+const BASE_URL ="https://api.currencyapi.com/v3/latest?apikey=cur_live_trf1pZtBulYepK7SLfMqCLo19t5sOG0xmQpbXQ0a"
 
-const BASE_URL = "https://cdn.jsdelivr.net/gh/ismartcoding/currency-api@main/latest/data.json"
+const dropdowns = document.querySelectorAll(".dropdown select");
+const btn = document.querySelector("form button");
+const fromCurr = document.querySelector(".from select");
+const toCurr = document.querySelector(".to select");
+const msg = document.querySelector(".msg");
 
-
-
-  const dropdowns = document.querySelectorAll(".dropdown select");
-  const btn = document.querySelector("form button")
-  const fromCurr = document.querySelector(".from select")
-  const toCurr= document.querySelector(".to select")
-
-
-
-for(let select of dropdowns){
-  for(currCode in countryList)
-    {
-      let newoption= document.createElement("option")
-      newoption.innerText=currCode
-      newoption.value = currCode
-      if(select.name == "from" && currCode =="INR")
-        {
-          newoption.selected = "selected"
-        }
-        else if(select.name == "from" && currCode =="")
-        {
-          newoption.selected = "selected"
-        }
-      select.append(newoption)
+for (let select of dropdowns) {
+  for (currCode in countryList) {
+    let newOption = document.createElement("option");
+    newOption.innerText = currCode;
+    newOption.value = currCode;
+    if (select.name === "from" && currCode === "USD") {
+      newOption.selected = "selected";
+    } else if (select.name === "to" && currCode === "INR") {
+      newOption.selected = "selected";
     }
-    select.addEventListener("change",(evt) => {
-      updateflag(evt.target)
-    })
+    select.append(newOption);
+  }
+
+  select.addEventListener("change", (evt) => {
+    updateFlag(evt.target);
+  });
 }
 
-const updateflag = (element)=>{
-  let currCode = element.value
-  let countrycode= countryList[currCode]
-  let newsrc= `https://flagsapi.com/${countrycode}/flat/64.png`
-  let img = element.parentElement.querySelector("img")
-  img.src= newsrc
-}
+const updateExchangeRate = async () => {
+  let amount = document.querySelector(".amount input");
+  let amtVal = amount.value;
+  if (amtVal === "" || amtVal < 1) {
+    amtVal = 1;
+    amount.value = "1";
+  }
+  const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+  let response = await fetch(URL);
+  let data = await response.json();
+  console.log("data in json format"+data)
+  let rate = data[toCurr.value.toLowerCase()];
 
-btn.addEventListener("click",  async(evt) =>{
-  evt.preventDefault()
-  let amount= document.querySelector(".amount input")
-  let amtVal=amount.value
-  console.log(amtVal)
-  if(amtVal ==""|| amtVal<1)
-    {
-      amtVal=1
-      amount.value="1"
-    }
+  let finalAmount = amtVal * rate;
+  msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+};
 
-    // *****************main logic to convert the amount***********************
-    const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`
-    let response = await fetch(URL)
-    // let data= await response.json();
-    console.log(response)
+const updateFlag = (element) => {
+  let currCode = element.value;
+  let countryCode = countryList[currCode];
+  let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
+  let img = element.parentElement.querySelector("img");
+  img.src = newSrc;
+};
 
-})
+btn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  updateExchangeRate();
+});
+
+window.addEventListener("load", () => {
+  updateExchangeRate();
+});
