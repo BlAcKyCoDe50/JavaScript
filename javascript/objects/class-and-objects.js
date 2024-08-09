@@ -39,13 +39,28 @@
 
 //Default parameters
 
-function greet(name = "Vishu", name1 = name.toUpperCase())
-{
-    console.log("Hello",name,name1);
-}
+// function greet(name = "Vishu", name1 = name.toUpperCase())
+// {
+//     console.log("Hello",name,name1);
+// }
 
 //if the parameters are not passed while using the function then the default
 //parameters will be used
 
 // greet("newname","lastname")
-greet()
+// greet()
+
+//symbols
+
+// Symbols are unique and immutable primitive values that are often used 
+// as property keys in objects. 
+// Each symbol is distinct and cannot be duplicated.
+
+let symb1 = Symbol("symbol1")
+let symb2 = Symbol("symbol2")
+
+console.log(symb1==symb2); //they never equal even the data is same 
+
+let obj = {};
+obj[symb1] = "change in symbol1"
+console.log(obj[symb1]);
