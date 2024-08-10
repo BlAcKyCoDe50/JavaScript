@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: red;">
+    
+</body >
+
+    <script>
+        // const div = document.createElement('div');
+        // div.id = "testing"
+        // div.className ="testing-class"
+        // div.setAttribute("h1","Testing Attribute")
+        // div.style.color = "red"
+        // console.log(div);
+
+        // const textnode = document.createTextNode("testing the text node ")    //this will add a new text node 
+        // div.appendChild(textnode) //but this will be optimized approach 
+
+        // //same above work can be done by : 
+        // div.innerText ="testing the text node "
+
+        // //appending the whole div node to body so it can be visible on the page
+        // document.body.appendChild(div)
+
+        const adddiv = (div_id)=>{
+            const div  = document.createElement('div');
+            div.id = div_id
+            return div;
+        }
+        const addattributewithdiv = (div_id,Attribute_name , Attribute_text)=>{
+           const div =  adddiv(div_id)
+            div.setAttribute(Attribute_name,Attribute_text)
+            div.style.color = "red"
+            div.textContent = "testing the function"
+            return div;
+        }   
+
+        const new_div = addattributewithdiv("random_id","h1","hello this is the testing of function")
+        document.body.appendChild(new_div)
+        console.log(new_div);
+     </script>
+
+</html>

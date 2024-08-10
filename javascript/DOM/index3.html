@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM </title>
+</head>
+<body style="background: #212121; color: white;" >
+    <ul class="language">
+        <li>Javascript  </li>
+    </ul>
+</body>
+<script>
+    // not optimized way to do this
+    const newli = (text)=>{
+    const newel =  document.createElement('li')
+    newel.innerText = `${text}`
+    document.querySelector('.language').appendChild(newel)
+    }
+
+     const newelement = newli("C++")
+    //  document.body.appendChild(newelement)    
+
+    //optimized way
+    const addli = (text)=>{
+        const newli = document.createElement('li')
+        const addtext = document.createTextNode(text);
+        newli.appendChild(addtext)
+        document.querySelector('.language').appendChild(newli)
+    }
+
+    addli("Golang")
+    addli("TypeScript")
+  
+//editing in DOM || replacing the elements
+
+const secondlang =  document.querySelector("li:nth-child(2)") //it means we are selecting the 2nd element of the list
+const newlist = document.createElement('li')
+newlist.innerHTML = "Java"
+secondlang.replaceWith(newlist)
+
+const firslangreplace = document.querySelector("li:nth-child(1)")
+const newlang = document.createElement('li')
+newlang.innerHTML = "C"
+firslangreplace.replaceWith(newlang)
+
+//creating a replacing function
+const replace = (position , newlang)=>{
+    const lang = document.querySelector(`li:nth-child(${position})`)
+    const newL = document.createElement('li')
+    newL.innerHTML = newlang
+    lang.replaceWith(newL)
+}
+
+replace(1,"Ruby")
+
+//function to remove 
+const remove = (position)=>{
+    const ele = document.querySelector(`li:nth-child(${position})`)
+    ele.remove()
+}
+
+remove(1)
+
+</script>
+</html>
