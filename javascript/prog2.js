@@ -23,3 +23,12 @@
 
 // console.log(strtest)
 
+
+const h1 = document.getElementsByTagName('h1')[0]
+let content = h1.textContent;
+h1.innerText = "HINDU"
+h1.style.backgroundColor = 'red'
+h1.style.borderRadius = '7vh'
+content = h1.textContent;
+
+console.log(content);
