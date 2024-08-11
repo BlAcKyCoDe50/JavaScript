@@ -1,4 +1,7 @@
 const clock = document.getElementById('clock')
+const reload = document.getElementById('reload')
+
+
 
 setInterval(() => {
     let date = new Date()

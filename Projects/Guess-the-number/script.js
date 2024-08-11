@@ -5,6 +5,13 @@ const guessSlot = document.querySelector('.guesses')
 const remainig = document.querySelector('.lastResult')
 const loworHi = document.querySelector('.lowOrHi')
 const startOver = document.querySelector('.resultParas')
+const reload = document.getElementById('reload')
+
+//function for reloading the page
+
+reload.addEventListener(('onclick',(ev)=>{
+    location.reload()
+}))
 
 const p = document.createElement('p')
 
