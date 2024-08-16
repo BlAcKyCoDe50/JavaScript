@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #1e58b5; /* Start Button color */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+button.stop {
+    background-color: #dc3545; /* Stop Button color */
+}
+
+button:hover {
+    background-color: #218838; /* Darker green for Start Button */
+    transform: scale(1.1);
+}
+
+button.stop:hover {
+    background-color: #c82333; /* Darker red for Stop Button */
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(40, 167, 69, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+    }
+}
+
+button.start {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+button.stop:active {
+    animation: shake 0.5s;
+}
