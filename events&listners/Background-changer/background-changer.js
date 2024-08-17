@@ -3,7 +3,7 @@ const randomColor = ()=>{
    let  color = '#'
     for(let i = 0; i < 6 ; i++)
     {
-        color+=hex[Math.floor(Math.random()*16)]
+        color+=hex[Math.floor(Math.random()*15)]
     }
     console.log(color);
     return color;
