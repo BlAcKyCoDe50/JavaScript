@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+}
+
+#card {
+    --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
+    width: 400px; /* Increased card width */
+    padding: 40px; /* Increased padding for a larger card */
+    border-radius: 1rem;
+    background: #74ebd5;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+}
+
+#card::before,
+#card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    z-index: -1;
+}
+
+#card::before {
+    background: linear-gradient(to bottom right, #f6d365 0%, #fda085 100%);
+    transform: rotate(2deg);
+}
+
+#card::after {
+    background: linear-gradient(to top right, #84fab0 0%, #8fd3f4 100%);
+    transform: rotate(-2deg);
+}
+
+.card-info {
+    background: #292b2c;
+    padding: 20px;
+    border-radius: 0.7rem;
+    position: relative;
+    z-index: 2;
+}
+
+.card-info h2 {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+#img {
+    width: 150px; /* Increased circle image size */
+    height: 150px; /* Increased circle image size */
+    background-color: white;
+    border-radius: 50%; /* Creates a perfect circle */
+    overflow: hidden; /* Ensures the image doesn't overflow */
+    margin: 0 auto 20px; /* Centers the image and adds margin at the bottom */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Ensure positioning for inner content */
+}
+
+#img img {
+    width: 100%; /* Ensures the image covers the width of the container */
+    height: 100%; /* Ensures the image covers the height of the container */
+    object-fit: cover; /* Ensures the image covers the circle without distortion */
+    display: block;
+}
+
+.card-info p {
+    margin: 10px 0;
+}
+
+#button {
+    margin-top: 20px;
+}
+
+#button button {
+    padding: 10px 20px;
+    background-color: white;
+    color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#button button:hover {
+    background-color: #f0f0f0; /* Slightly darker on hover */
+}
+
+.card:hover::before,
+.card:hover::after {
+    opacity: 0;
+}
+
+.card:hover .card-info {
+    color: #74ebd5;
+    transition: color 1s;
+}
